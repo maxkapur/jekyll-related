@@ -47,15 +47,28 @@ module Jekyll
 
         # Compute similarity score for each post against every other as cosine
         # similarity between the volumes.
+        most_similar = nil, nil
+        highest_similarity = -Float::INFINITY
         site.posts.docs.each do |current_post|
           current_post.data["related"] = site.posts.docs.filter do |related_post|
             related_post != current_post
           end.map do |related_post|
-            {
-              "post" => related_post,
-              "score" => similarity(current_post, related_post)
-            }
+            score = similarity(current_post, related_post)
+            if score > highest_similarity
+              most_similar = current_post.data["title"], related_post.data["title"]
+              highest_similarity = score
+            end
+            {"post" => related_post, "score" => score}
           end.sort_by { |item| -item["score"] }
+        end
+
+        n = site.posts.docs.length
+        message = "Processed #{n} post" + ((n == 1) ? "" : "s")
+        Jekyll.logger.info "Related posts:", message
+        unless n == 1
+          Jekyll.logger.info "Highest similarity:", "\"#{most_similar.first}\""
+          Jekyll.logger.info "and", "\"#{most_similar.last}\""
+          Jekyll.logger.info "with score", "#{"%.4f" % highest_similarity}."
         end
       end
 

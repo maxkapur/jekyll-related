@@ -16,6 +16,3 @@ You can find the source code for Jekyll at GitHub:
 
 
 [jekyll-organization]: https://github.com/jekyll
-
-Text of the United Nations Universal Declaration of Human Rights obtained from
-the following URL: https://www.un.org/en/about-us/universal-declaration-of-human-rights

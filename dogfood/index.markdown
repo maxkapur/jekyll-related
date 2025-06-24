@@ -4,3 +4,8 @@
 
 layout: home
 ---
+
+This is a sample site designed to demonstrate and test the functionality of the
+`jekyll-related` plugin. The posts are the preamble and articles of the
+Universal Declaration of Human Rights, obtained from the [United Nations
+website](https://www.un.org/en/about-us/universal-declaration-of-human-rights).

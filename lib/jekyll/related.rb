@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "related/version"
+require_relative "tag"
 
 require "tokenizer"
 

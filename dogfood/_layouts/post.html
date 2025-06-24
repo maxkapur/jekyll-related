@@ -19,7 +19,7 @@ layout: default
     {{ content }}
   </div>
 
-  <!-- TODO: insert related block -->
+  {%- related -%}
 
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}

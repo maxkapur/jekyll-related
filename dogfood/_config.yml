@@ -20,8 +20,8 @@
 
 title: Jekyll related posts demo
 description: "Relatable"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/jekyll-related" # the subpath of your site, e.g. /blog
+url: "https://maxkapur.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima

@@ -1,0 +1,25 @@
+{%- if page.related -%}
+<ol class="related-post-list">
+  {%- comment -%}
+    Need to compare .hidden != true as default (not hidden) value is nil
+  {%- endcomment -%}
+  {%- assign related = page.related | where_exp: "item", "item.post.hidden != true" -%}
+  {%- for item in related limit: site.related.count %}
+  <li>
+    <div class="related-post-list-entry">
+      <a href="{{ item.post.url | relative_url }}"
+        title="Similarity score: {{ item.score | times: 1000 | round }}"
+      >
+        {{- item.post.title | escape -}}
+      </a>
+      &ZeroWidthSpace;
+      <span class="post-meta">
+        (<time datetime="{{ item.post.date | date_to_xmlschema }}">
+        {{- item.post.date | date: date_format -}}
+        </time>)
+      </span>
+    </div>
+    {%- endfor -%}
+  </li>
+</ol>
+{%- endif -%}

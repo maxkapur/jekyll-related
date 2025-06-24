@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "Super secret title for the README"
+categories: jekyll update
+---
+
 # Jekyll related posts plugin
 
 Jekyll plugin to identify and link to related posts.
@@ -64,7 +70,7 @@ related:
 
 ## Goals
 
-Eventually, I would like to provide a `{% related_posts %}` Liquid tag that will
+Eventually, I would like to provide a `related_posts` Liquid tag that will
 automatically produce the list of related posts. Or maybe I won't do that, since
 there are lots of different ways you could choose to format it.
 

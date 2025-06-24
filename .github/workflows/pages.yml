@@ -24,11 +24,13 @@ jobs:
         run: bundle install
       - name: Build site
         run: bundle exec jekyll build
+      - name: Show site contents
+        run: tree _site/
       - name: Upload static files as artifact
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site/
+          path: ./dogfood/_site/
 
   deploy:
     environment:

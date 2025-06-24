@@ -1,9 +1,3 @@
----
-layout: post
-title:  "Super secret title for the README"
-categories: jekyll update
----
-
 # Jekyll related posts plugin
 
 Jekyll plugin to identify and link to related posts.
@@ -13,7 +7,8 @@ mine. 😁
 
 Prior to building your site, `jekyll-related` attaches a bit of metadata to each
 posts that ranks all the other posts from most to least related. You can use
-this metadata as you wish in your post templates.
+this metadata as you wish in your post templates, either manually or using the
+the `{% related %}` tag.
 
 "Relatedness" is computed by counting similar word frequencies, with a little
 extra weight given to words that are rare (like "submodular") and less to words
@@ -46,20 +41,24 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: I will flesh this out a bit more, but for now, see
-[`_includes/related.html`](https://github.com/maxkapur/maxkapur.github.io/blob/e4b6bbc5c418039432a6e2628a287988437e3d0c/_includes/related.html)
-in my personal site for an example of how to use the `.data["related"]` metadata
-in a Liquid template.
+There are a few ways to use this plugin:
+
+- Modify your post layout [like this example in the demo
+  site](./dogfood/_layouts/post.html) to use the '{% related %}` tag. This
+  inserts an `<ol class="related-post-list">` with the related post titles,
+  links, and dates as list elements.
+- Create your own template if you want to tweak the list appearance more
+  precisely. The [Liquid template](./lib/jekyll/related.html) used by the `{%
+  related %}` tag should get you started.
 
 You may configure the following options in your site's `_config.yml`; the values
 below are the defaults:
 
 ```yaml
 related:
-  # Number of related posts to show. The plugin itself doesn't do anything with
-  # this at the moment (it always ranks all posts); it's up to the template to
-  # implement this functionality.
-  count: 2
+  # Number of related posts to show if using the {% related %} tag (the plugin
+  # itself always ranks all posts in the metadata). nil means rank all of them.
+  count: nil
   # Relative weight between the most and least frequent words in the corpus.
   # A value close to 1 means all words have similar weight; a high value means
   # rare words matter a lot. Decrease this value if your recommendations feel 

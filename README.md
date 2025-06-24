@@ -14,6 +14,11 @@ the `{% related %}` tag.
 extra weight given to words that are rare (like "submodular") and less to words
 that are frequent (like "then").
 
+The [dogfood/](./dogfood/) directory contains a demo Jekyll site which uses the
+plugin to rank the similarity of each of the articles in the UN Universal
+Declaration of Human Rights. You can see the demo site on GitHub pages TODO:
+here.
+
 [^1]: https://rubygems.org/gems/jekyll-related-posts
 [^2]: https://rubygems.org/gems/jekyll-tfidf-related-posts
 [^3]: https://rubygems.org/gems/jekyll-tagging-related_posts

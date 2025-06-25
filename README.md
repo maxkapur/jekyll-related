@@ -50,7 +50,7 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 There are a few ways to use this plugin:
 
 - Modify your post layout [like this example in the demo
-  site](./dogfood/_layouts/post.html) to use the '{% related %}` tag. This
+  site](./dogfood/_layouts/post.html) to use the `{% related %}` tag. This
   inserts an `<ol class="related-post-list">` with the related post titles,
   links, and dates as list elements. As an easter egg, the links show the  <span
   title="Like this: 849">similarity score in the hover text.</span>

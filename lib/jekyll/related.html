@@ -1,3 +1,13 @@
+{%- comment -%}
+  If `post` is defined, we are probably on the homepage, and want to rank posts
+  related to `post`. If not, we are probably on an individual post's page, and
+  `page` is the post itself. Thus assigning `page` as below is necessary to
+  enable using the tag on the homepage. 
+{%- endcomment -%}
+{%- if post -%}
+{%- assign page = post -%}
+{%- endif -%}
+
 {%- if page.related -%}
 <ol class="related-post-list">
   {%- comment -%}

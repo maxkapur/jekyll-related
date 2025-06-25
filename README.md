@@ -74,12 +74,6 @@ related:
   factor: 10.0
 ```
 
-## Goals
-
-Eventually, I would like to provide a `related_posts` Liquid tag that will
-automatically produce the list of related posts. Or maybe I won't do that, since
-there are lots of different ways you could choose to format it.
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can

@@ -16,8 +16,8 @@ that are frequent (like "then").
 
 The [dogfood/](./dogfood/) directory contains a demo Jekyll site which uses the
 plugin to rank the similarity of each of the articles in the UN Universal
-Declaration of Human Rights. You can see the demo site on GitHub pages TODO:
-here.
+Declaration of Human Rights. [You can view the demo site on GitHub pages
+here.](https://maxkapur.com/jekyll-related/)
 
 [^1]: https://rubygems.org/gems/jekyll-related-posts
 [^2]: https://rubygems.org/gems/jekyll-tfidf-related-posts

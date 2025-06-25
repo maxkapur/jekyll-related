@@ -7,8 +7,9 @@ mine. 😁
 
 Prior to building your site, `jekyll-related` attaches a bit of metadata to each
 posts that ranks all the other posts from most to least related. You can use
-this metadata as you wish in your post templates, either manually or using the
-the `{% related %}` tag.
+this metadata to recommend related posts to your readers, either by using the
+included `{% related %}` tag or creating a customized template using the
+`page.related` metadata the plugin defines.
 
 "Relatedness" is computed by counting similar word frequencies, with a little
 extra weight given to words that are rare (like "submodular") and less to words
@@ -51,10 +52,11 @@ There are a few ways to use this plugin:
 - Modify your post layout [like this example in the demo
   site](./dogfood/_layouts/post.html) to use the '{% related %}` tag. This
   inserts an `<ol class="related-post-list">` with the related post titles,
-  links, and dates as list elements.
+  links, and dates as list elements. As an easter egg, the links show the  <span
+  title="Like this: 849">similarity score in the hover text.</span>
 - Create your own template if you want to tweak the list appearance more
-  precisely. The [Liquid template](./lib/jekyll/related.html) used by the `{%
-  related %}` tag should get you started.
+  precisely. The [Liquid template](./lib/jekyll/related.html) used by the
+  `{% related %}` tag should get you started.
 
 You may configure the following options in your site's `_config.yml`; the values
 below are the defaults:
@@ -67,8 +69,8 @@ related:
   # Relative weight between the most and least frequent words in the corpus.
   # A value close to 1 means all words have similar weight; a high value means
   # rare words matter a lot. Decrease this value if your recommendations feel 
-  # too random; increase this value if your recommendations are too similar for
-  # different posts.
+  # too random; increase this value if you are getting nearly the same
+  # recommendations for every post.
   factor: 10.0
 ```
 

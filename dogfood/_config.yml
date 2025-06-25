@@ -25,6 +25,7 @@ url: "https://maxkapur.com" # the base hostname & protocol for your site, e.g. h
 
 # Build settings
 theme: minima
+show_excerpts: true
 
 related:
   count: 2

@@ -8,12 +8,12 @@ mine. 😁
 Prior to building your site, `jekyll-related` attaches a bit of metadata to each
 posts that ranks all the other posts from most to least related. You can use
 this metadata to recommend related posts to your readers, either by using the
-included `{% related %}` tag or creating a customized template using the
-`page.related` metadata the plugin defines.
+included `{% related %}` tag to automatically insert a list, or by creating a
+customized template using the `page.related` metadata the plugin defines.
 
-"Relatedness" is computed by counting similar word frequencies, with a little
-extra weight given to words that are rare (like "submodular") and less to words
-that are frequent (like "then").
+Relatedness is computed by counting similar word frequencies, with extra weight
+given to words that are rare (like "submodular") and less to words that are
+frequent (like "then").
 
 The [dogfood/](./dogfood/) directory contains a demo Jekyll site which uses the
 plugin to rank the similarity of each of the articles in the UN Universal
@@ -55,8 +55,8 @@ There are a few ways to use this plugin:
   links, and dates as list elements. As an easter egg, the links show the  <span
   title="Like this: 849">similarity score in the hover text.</span>
 - Create your own template if you want to tweak the list appearance more
-  precisely. The [Liquid template](./lib/jekyll/related.html) used by the
-  `{% related %}` tag should get you started.
+  precisely. The [Liquid template](./lib/jekyll/related.html) used by the `{%
+  related %}` tag should get you started.
 
 You may configure the following options in your site's `_config.yml`; the values
 below are the defaults:

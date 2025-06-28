@@ -6,12 +6,20 @@ require_relative "tag"
 require "tokenizer"
 
 TOKENIZER = Tokenizer::WhitespaceTokenizer.new
-DEFAULT_FACTOR = 10.0
 
 module Jekyll
   module Related
+    DEFAULT_CONFIG = {
+      "count" => nil,
+      "factor" => 10.0,
+    }
+
     class Generator < Jekyll::Generator
       def generate(site)
+        # Update config with defaults in place. This ensures that the config
+        # values are also accessible from templates.
+        site.config["related"] = DEFAULT_CONFIG.merge(site.config["related"] || {})
+
         # Count tokens within each post.
         post_tallies = site.posts.docs.to_h do |post|
           [post, (TOKENIZER.tokenize post.content.downcase).tally]
@@ -25,7 +33,7 @@ module Jekyll
         end
 
         # Convert global frequencies into weights for each factor.
-        factor = site.config.dig("related", "factor") || DEFAULT_FACTOR
+        factor = site.config.dig("related", "factor")
         # Weights decay expontially with frequency, so the rarest tokens have
         # weight `1` and the most frequent token has weight `1 / factor`. Thus,
         # we need to choose `beta` so that `exp(beta * max_count) = 1 / factor`,

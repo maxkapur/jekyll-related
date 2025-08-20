@@ -31,7 +31,10 @@ you can depend directly on the git repo by adding the following to your Gemfile:
 
 ```text
 group :jekyll_plugins do
+  # Track the main branch. Might break occasionally :D
   gem "jekyll-related", git: "https://github.com/maxkapur/jekyll-related", branch: "main"
+  # Pin a specific git commit
+  gem "jekyll-related", git: "https://github.com/maxkapur/jekyll-related", ref: "67da865bd33324d4330ca57e419e7782c1e8bc6d"
 end
 ```
 

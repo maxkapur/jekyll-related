@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-require "tokenizer"
-
 module Jekyll
   module Related
-    TOKENIZER = Tokenizer::WhitespaceTokenizer.new
-
     class Generator < Jekyll::Generator
       def generate(site)
         # Update config with defaults in place. This ensures that the config
@@ -14,7 +10,7 @@ module Jekyll
 
         # Count tokens within each post.
         post_tallies = site.posts.docs.to_h do |post|
-          [post, (TOKENIZER.tokenize post.content.downcase).tally]
+          [post, (tokenize post.content.downcase).tally]
         end
 
         # Count global frequency of each token.
@@ -71,6 +67,11 @@ module Jekyll
           Jekyll.logger.info "and", "\"#{most_similar.last}\""
           Jekyll.logger.info "with score", "#{"%.4f" % highest_similarity}."
         end
+      end
+
+      # Split post body into "words"
+      def tokenize(post)
+        post.split(/\b/).delete_if { |x| /\s+/.match? x }
       end
 
       # Cosine similarity between the two count vectors

@@ -3,9 +3,6 @@
 require_relative "related/version"
 require_relative "tag"
 
-require "tokenizer"
-
-TOKENIZER = Tokenizer::WhitespaceTokenizer.new
 DEFAULT_FACTOR = 10.0
 
 module Jekyll
@@ -14,7 +11,7 @@ module Jekyll
       def generate(site)
         # Count tokens within each post.
         post_tallies = site.posts.docs.to_h do |post|
-          [post, (TOKENIZER.tokenize post.content.downcase).tally]
+          [post, (tokenize post.content.downcase).tally]
         end
 
         # Count global frequency of each token.
@@ -71,6 +68,11 @@ module Jekyll
           Jekyll.logger.info "and", "\"#{most_similar.last}\""
           Jekyll.logger.info "with score", "#{"%.4f" % highest_similarity}."
         end
+      end
+
+      # Split post body into "words"
+      def tokenize(post)
+        post.split(/\b/).delete_if { |x| /\s+/.match? x }
       end
 
       # Cosine similarity between the two count vectors
